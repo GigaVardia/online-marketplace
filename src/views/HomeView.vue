@@ -15,10 +15,18 @@
     <right-navigation-drawer :drawer.sync="rightDrawer">
     </right-navigation-drawer>
 
-    <v-main>
+    <v-main v-if="$route.path !== '/'">
       <router-view>
       </router-view>
     </v-main>
+
+    <v-main v-else>
+      <home-slider-component>
+      </home-slider-component>
+    </v-main>
+
+    <footer-component>
+    </footer-component>
   </v-app>
 </template>
 
@@ -27,10 +35,14 @@ import SystemBarComponent from '@/components/Home/HeaderComponents/SystemBarComp
 import AppBarComponent from '@/components/Home/HeaderComponents/AppBarComponent'
 import LeftNavigationDrawer from '@/components/Home/NavigationDrawers/LeftNavigationDrawer'
 import RightNavigationDrawer from '@/components/Home/NavigationDrawers/RightNavigationDrawer'
+import FooterComponent from '@/components/Home/Footer/FooterComponent'
+import HomeSliderComponent from '@/components/Home/HomeSlider/HomeSliderComponent'
 
 export default {
   name: 'HomeView',
   components: {
+    HomeSliderComponent,
+    FooterComponent,
     RightNavigationDrawer,
     LeftNavigationDrawer,
     AppBarComponent,
