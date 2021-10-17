@@ -2,6 +2,7 @@
   <v-app-bar
     app
     flat
+    height="auto"
   >
     <v-container class="pa-0">
       <v-row no-gutters class="d-flex align-center">
@@ -41,6 +42,7 @@
           >
           </regular-tooltip-button>
           <regular-tooltip-button
+            @click="$emit('rightDrawer', $event)"
             btn-icon="mdi-cart"
             tooltip="Cart"
             open-delay="400"
@@ -49,16 +51,24 @@
           </regular-tooltip-button>
         </v-col>
       </v-row>
+      <header-menu-component
+        @click="$emit('leftDrawer', $event)"
+      >
+      </header-menu-component>
     </v-container>
   </v-app-bar>
 </template>
 
 <script>
 import RegularTooltipButton from '@/components/Common/RegularTooltipButton'
+import HeaderMenuComponent from '@/components/Home/HeaderComponents/HeaderMenuComponent'
 
 export default {
   name: 'AppBarComponent',
-  components: { RegularTooltipButton }
+  components: {
+    HeaderMenuComponent,
+    RegularTooltipButton
+  }
 }
 </script>
 

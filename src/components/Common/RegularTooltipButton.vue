@@ -15,7 +15,7 @@
         :loading="loading"
         :disabled="btnDisabled"
         :to="to"
-        @click="$emit('click')"
+        @click="$emit('click', $event)"
         v-bind="attrs"
         v-on="on"
       >
